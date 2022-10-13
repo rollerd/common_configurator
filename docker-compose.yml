@@ -1,0 +1,13 @@
+services:
+  localgo:
+    image: localgo:latest
+    volumes: 
+    - $HOME/.rdsauth.ini:/root/.rdsauth.ini
+    - $HOME/.aws:/root/.aws
+    - $HOME/.ssh:/root/.ssh
+    - .:/gocode
+    working_dir: /gocode
+    environment:
+      - AWS_PROFILE=default
+    command: ["/bin/bash"]
+
